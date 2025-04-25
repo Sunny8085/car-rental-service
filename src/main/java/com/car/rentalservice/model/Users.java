@@ -33,8 +33,8 @@ public class Users {
 	@Column(unique = true, nullable = false, name = "mobile_no")
 	private String mobileNo;
 	
-	@ManyToOne
-	@JoinColumn(name ="role_id" ,referencedColumnName = "role_id")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name ="role_id", referencedColumnName = "role_id")
 	private Roles roles;
 	
 	@OneToOne(optional = true, fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
